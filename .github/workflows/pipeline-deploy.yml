@@ -7,19 +7,19 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
   
-  jobs:
-    build:
-      name: Compilação
-      runs-on: ubuntu-latest
-    
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v3
-      - name: Configurar o JDK 11
-        uses: actions/checkout@v3
-        with: 
-          java-version: '11'
-          distribution: 'temurin'
-          cache: maven
-      - name: Compilação
-        run: mvn -B compile --file pom.xml
+jobs:
+  build:
+    name: Compilação
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Git checkout
+      uses: actions/checkout@v3
+    - name: Configurar o JDK 11
+      uses: actions/checkout@v3
+      with: 
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Compilação
+      run: mvn -B compile --file pom.xml
